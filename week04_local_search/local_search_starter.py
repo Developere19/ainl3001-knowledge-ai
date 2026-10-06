@@ -309,3 +309,92 @@ if __name__ == "__main__":
 
     print("Final conflicts:")
     print(count_conflicts(sa_result))
+
+
+
+"""
+--------------------------------------------------
+REFLECTION QUESTIONS
+--------------------------------------------------
+
+1. What is the difference between search and optimisation?
+
+Search is usually concerned with finding a path from an initial
+state to a goal state.
+
+Optimisation focuses more on finding or improving a good final
+candidate solution, rather than the path taken to reach it.
+
+
+2. Why does an optimisation problem require a way to evaluate
+candidate solutions?
+
+It needs an evaluation or cost function so that different
+candidate solutions can be compared.
+
+In N-Queens, the number of conflicts is the cost.
+A lower conflict count means a better solution.
+
+
+3. Why can Hill Climbing become stuck in a local minimum?
+
+Hill Climbing only moves to a better neighbouring state.
+
+It can reach a state where no neighbour has a lower cost,
+even though the current cost is still greater than 0.
+
+It therefore stops before reaching the best possible solution.
+
+
+4. What is a plateau?
+
+A plateau is an area of the search space where many neighbouring
+states have the same cost.
+
+Hill Climbing may have difficulty progressing because there is
+no clearly better neighbouring state to move to.
+
+
+5. How does Simulated Annealing attempt to overcome the
+limitations of Hill Climbing?
+
+Simulated Annealing can sometimes accept a worse state.
+
+This allows it to explore more of the search space and potentially
+escape local minima or plateaus.
+
+As the temperature decreases, worse moves become less likely.
+
+
+6. What is the difference between deterministic and stochastic search?
+
+Deterministic search makes the same decision when given the same
+state and decision rule.
+
+Stochastic search includes randomness, so its decisions and results
+may differ between runs.
+
+Simulated Annealing is stochastic because it uses random neighbours
+and probabilistic decisions.
+
+
+7. How did the Problem representation allow us to represent both
+a grid world and N-Queens?
+
+The Problem class provides a common structure using things such as
+the initial state, actions(state), and result(state, action).
+
+GridProblem and QueensProblem can therefore use the same general
+interface while defining different states and actions.
+
+
+8. How do optimisation techniques such as these relate to
+Machine Learning?
+
+Machine Learning often involves searching for parameter values or
+configurations that improve an objective.
+
+Optimisation techniques evaluate candidate solutions and try to
+improve them, similar to how Hill Climbing and Simulated Annealing
+search for lower-cost states.
+"""
