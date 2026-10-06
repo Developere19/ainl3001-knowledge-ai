@@ -205,10 +205,38 @@ def simulated_annealing(problem, start_board):
     temperature = 10.0
     cooling_rate = 0.95
 
-    # TODO
+    while temperature > 0.01:
 
-    pass
+        neighbours = generate_neighbours(problem, current)
 
+        # Choose a random neighbour
+        neighbour = random.choice(neighbours)
+
+        current_cost = count_conflicts(current)
+        neighbour_cost = count_conflicts(neighbour)
+
+        # If the new state is better, always accept it
+        if neighbour_cost < current_cost:
+            current = neighbour
+
+        else:
+            # Calculate how much worse the neighbour is
+            difference = neighbour_cost - current_cost
+
+            # Probability of accepting a worse move
+            probability = math.exp(-difference / temperature)
+
+            if random.random() < probability:
+                current = neighbour
+
+        # Stop early if a solution is found
+        if count_conflicts(current) == 0:
+            return current
+
+        # Cool the temperature
+        temperature *= cooling_rate
+
+    return current
 
 # --------------------------------------------------
 # TESTING AREA
@@ -265,3 +293,19 @@ if __name__ == "__main__":
 
     print("Final conflicts:")
     print(count_conflicts(result))
+
+    print("\nSimulated Annealing")
+
+    sa_result = simulated_annealing(problem, board)
+
+    print("Start board:")
+    print(board)
+
+    print("Start conflicts:")
+    print(count_conflicts(board))
+
+    print("Final board:")
+    print(sa_result)
+
+    print("Final conflicts:")
+    print(count_conflicts(sa_result))
