@@ -156,30 +156,45 @@ print(
     problem.goal_test((4, 4))
 )
 
-
-# --------------------------------------------------
-# REFLECTION QUESTIONS
-# --------------------------------------------------
-
 """
-Be ready to discuss:
+
+REFLECTION QUESTIONS
+
+
+Tutorial Reflection Questions
 
 1. What information is stored in problem.initial?
+problem.initial stores the starting state of the problem.
+In this grid example, the starting state is (0, 0).
 
 2. What information is stored in problem.goal?
+problem.goal stores the target state that we are trying to reach.
+In this grid example, the goal state is (4, 4).
 
-3. What is the difference between:
+3. What is the difference between actions(state) and result(state, action)?
+actions(state) returns the valid actions that can be taken from the current state.
+For example, from (0, 0), the valid actions are DOWN and RIGHT.
 
-       problem.actions(state)
+result(state, action) returns the new state after performing an action.
+For example, result((0, 0), "RIGHT") returns (1, 0).
 
-   and:
+Easy way to remember:
+actions() = What can I do?
+result() = Where do I end up?
 
-       problem.result(state, action)
+4. Why does the Problem class not know anything about grids?
+Problem is designed to be a general problem representation.
+It can be reused for many different AI problems, not just grid problems.
+The specific subclass defines what the states and actions mean.
 
-4. Why doesn't Problem know anything about grids?
+5. Why does GridProblem not know anything about search?
+GridProblem only describes the problem itself.
+It defines the states, valid actions, and the result of taking an action.
+The search algorithm is kept separate and decides how the problem is solved.
 
-5. Why doesn't GridProblem know anything about search?
-
-6. Could the same Problem structure be used for something
-   other than a grid?
+6. Could the same Problem structure represent something other than a grid?
+Yes.
+The same Problem structure can represent many different problems.
+For example, the N-Queens problem can also use an initial state,
+actions, and result, even though its states and actions are different.
 """
