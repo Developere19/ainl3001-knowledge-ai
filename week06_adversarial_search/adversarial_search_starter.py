@@ -332,6 +332,25 @@ def best_move_alpha_beta(state, counter):
     return chosen_move
 
 
+
+# --------------------------------------------------
+# TASK 6 — Comparison
+# --------------------------------------------------
+
+print("\nTask 6 — Minimax vs Alpha-Beta Comparison")
+
+print("Did both algorithms choose the same move?")
+print("Yes. Both Minimax and Alpha-Beta chose move 5, which is the optimal winning move for X.\n")
+
+print("Which algorithm visited fewer nodes?")
+print("Alpha-Beta visited fewer nodes. Minimax visited 31 nodes, while Alpha-Beta visited 17 nodes. This means Alpha-Beta avoided searching 14 unnecessary nodes.\n")
+
+print("Does Alpha-Beta always prune the same amount regardless of move ordering?")
+print("No. The amount of pruning depends on the order in which moves are examined. If strong moves are considered earlier, alpha and beta bounds can become useful sooner and more branches may be pruned.\n")
+
+
+
+
 # --------------------------------------------------
 # TESTING — RUN PYTHON FILE IN VS CODE
 # --------------------------------------------------
@@ -361,7 +380,15 @@ if __name__ == "__main__":
         print_board(make_move(board, move_minimax, "X"))
 
     print("\nReflection:")
-    print("1. Why is Tic-Tac-Toe a search problem?")
+
+    print("1. Why is Tic-Tac-Toe considered a search problem?")
+    print("Tic-Tac-Toe is a search problem because the AI must consider different possible moves and future game states to decide which action gives the best outcome.\n")
+
     print("2. Why does Minimax assume an optimal opponent?")
+    print("Minimax assumes an optimal opponent so that the AI chooses a move that is safe even if the opponent always makes the best possible response. X tries to maximise the score while O tries to minimise it.\n")
+
     print("3. What is the purpose of a utility function?")
+    print("The utility function gives terminal game states a numerical score. An X win has utility +1, an O win has utility -1, and a draw has utility 0. Minimax uses these values to compare possible outcomes.\n")
+
     print("4. What happens as games become larger?")
+    print("As games become larger, the number of possible states and move sequences grows rapidly. This makes full Minimax search increasingly expensive in time and memory, so techniques such as Alpha-Beta pruning, depth limits and heuristic evaluation become more important.\n")
