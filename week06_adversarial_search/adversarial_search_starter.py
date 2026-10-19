@@ -301,10 +301,35 @@ def alpha_beta(state, maximizing, alpha, beta, counter):
 
 def best_move_alpha_beta(state, counter):
     """Return the best move index for X using Alpha-Beta search."""
-    # TODO: Like best_move(), but call alpha_beta().
-    # Start alpha at -infinity and beta at +infinity.
-    # Update alpha after each candidate X move.
-    pass
+    if is_terminal(state):
+        return None
+
+    best_score = float("-inf")
+    chosen_move = None
+
+    alpha = float("-inf")
+    beta = float("inf")
+
+    for move in available_moves(state):
+
+        new_state = make_move(state, move, "X")
+
+        # O plays next
+        score = alpha_beta(
+            new_state,
+            False,
+            alpha,
+            beta,
+            counter
+        )
+
+        if score > best_score:
+            best_score = score
+            chosen_move = move
+
+        alpha = max(alpha, best_score)
+
+    return chosen_move
 
 
 # --------------------------------------------------
