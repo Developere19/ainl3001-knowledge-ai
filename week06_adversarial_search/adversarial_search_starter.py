@@ -239,11 +239,60 @@ def alpha_beta(state, maximizing, alpha, beta, counter):
     alpha = best score MAX can guarantee so far.
     beta  = best score MIN can guarantee so far.
     """
-    # TODO: Adapt minimax():
-    # - MAX updates alpha; MIN updates beta.
-    # - Stop exploring remaining moves if alpha >= beta.
-    # - Count visited nodes exactly as in minimax().
-    pass
+    # Count this visited game-tree node
+    counter["nodes"] += 1
+
+    # If the game is finished, return its utility
+    if is_terminal(state):
+        return utility(state)
+
+    # X is MAX
+    if maximizing:
+        best_score = float("-inf")
+
+        for move in available_moves(state):
+            new_state = make_move(state, move, "X")
+
+            score = alpha_beta(
+                new_state,
+                False,
+                alpha,
+                beta,
+                counter
+            )
+
+            best_score = max(best_score, score)
+            alpha = max(alpha, best_score)
+
+            # Prune remaining branches
+            if alpha >= beta:
+                break
+
+        return best_score
+
+    # O is MIN
+    else:
+        best_score = float("inf")
+
+        for move in available_moves(state):
+            new_state = make_move(state, move, "O")
+
+            score = alpha_beta(
+                new_state,
+                True,
+                alpha,
+                beta,
+                counter
+            )
+
+            best_score = min(best_score, score)
+            beta = min(beta, best_score)
+
+            # Prune remaining branches
+            if alpha >= beta:
+                break
+
+        return best_score
 
 
 # --------------------------------------------------
