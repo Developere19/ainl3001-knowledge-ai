@@ -32,11 +32,21 @@ example_assignment = {
 
 print("Manual CSP Exploration")
 print(example_assignment)
+
 print("\nQuestions:")
+
 print("1. Is this assignment valid?")
+print("No. The assignment is invalid because some neighbouring regions have been assigned the same colour.\n")
+
 print("2. Which neighbouring pairs violate a constraint?")
+print("WA and NT violate a constraint because they are both Red. SA and V also violate a constraint because they are both Green.\n")
+
 print("3. How could you correct the assignment?")
+print("One way to correct the assignment is to change WA to Blue and V to Blue. This makes each neighbouring pair have different colours.\n")
+
+
 print("4. Why is it useful to detect violations early?")
+print("Detecting violations early prevents the search algorithm from continuing with an assignment that cannot lead to a valid solution. This reduces unnecessary searching and makes the process more efficient.\n")
 
 # --------------------------------------------------
 # TASK 1 — CSP REPRESENTATION
