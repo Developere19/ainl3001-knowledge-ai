@@ -202,10 +202,31 @@ def best_move(state, counter):
 
     Count nodes in recursive Minimax searches. Ties use first move.
     """
-    # TODO: Try each legal X move, call minimax() for O's turn,
-    # and return the move with the highest score.
-    # If the board is terminal, return None.
-    pass
+     # If the game has already finished, there is no move to make.
+    if is_terminal(state):
+        return None
+
+    best_score = float("-inf")
+    chosen_move = None
+
+    # Try every legal move for X.
+    for move in available_moves(state):
+
+        new_state = make_move(state, move, "X")
+
+        # O plays next, so maximizing is False.
+        score = minimax(
+            new_state,
+            False,
+            counter
+        )
+
+        # Keep the move with the highest score.
+        if score > best_score:
+            best_score = score
+            chosen_move = move
+
+    return chosen_move
 
 
 # --------------------------------------------------
