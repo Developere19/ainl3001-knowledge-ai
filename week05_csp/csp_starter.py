@@ -159,6 +159,40 @@ def backtracking_search(assignment):
 # Six regions with three possible colours each give 3 ** 6 = 729
 # complete assignments. Why can backtracking avoid checking all 729?
 
+"""
+TASK 4 — BACKTRACKING VS BRUTE FORCE
+
+1. Would brute force need to consider many invalid complete assignments?
+
+Yes. Brute force could generate all 729 possible complete assignments,
+including many assignments that already violate constraints.
+
+
+2. What happens when backtracking detects a constraint violation
+in a partial assignment?
+
+Backtracking stops exploring that branch immediately and removes
+the most recent assignment so it can try another value.
+
+
+3. Why can rejecting partial assignments early save work?
+
+It prevents the algorithm from continuing to build assignments
+that can never become valid solutions.
+
+This means many possible combinations do not need to be explored.
+
+
+4. Does finding one valid solution mean that all valid solutions
+have been found?
+
+No. The current backtracking search stops when it finds the first
+valid solution.
+
+There may be other valid colour assignments that are not explored.
+"""
+
+
 
 # --------------------------------------------------
 # TESTING AREA
