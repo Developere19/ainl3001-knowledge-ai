@@ -254,6 +254,14 @@ if __name__ == "__main__":
     print("\nPossible complete assignments:", 3 ** len(variables))
     print("\nReflection:")
     print("1. What causes backtracking?")
+    print("Backtracking happens when the current partial assignment cannot lead to a valid solution. The algorithm removes the most recent assignment and tries a different value.\n")
+
     print("2. Why can backtracking be faster than brute force?")
+    print("Backtracking can be faster because it checks constraints while building the solution. If a partial assignment is already invalid, it stops exploring that branch instead of continuing to a complete assignment.\n")
+
     print("3. Why might MRV reduce search?")
+    print("MRV chooses the unassigned variable with the fewest legal values remaining. This can reveal difficult or impossible choices earlier, which may reduce the amount of unnecessary searching.\n")
+
     print("4. How could this model represent timetabling?")
+    print("In a timetabling CSP, the variables could be lectures or classes, the domains could be available rooms and time slots, and the constraints could prevent clashes such as two classes using the same room at the same time.\n")
+    
