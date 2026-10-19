@@ -97,6 +97,7 @@ def select_unassigned_variable(assignment):
     """Choose the next unassigned region.
 
     Task 3: First return the FIRST unassigned region.
+    
 
     Task 5: Replace that approach with MRV (Minimum Remaining Values):
     choose the unassigned region with the FEWEST currently legal
@@ -105,7 +106,13 @@ def select_unassigned_variable(assignment):
     # TASK 3 TODO:
     # Return the first variable not in assignment, or None if all
     # variables have been assigned.
-    #
+
+    for variable in variables:
+        if variable not in assignment:
+            return variable
+
+    return None
+
     # TASK 5 TODO (after backtracking works):
     # For each unassigned variable, temporarily try each colour,
     # check is_valid_assignment(), and undo the temporary assignment.
@@ -119,15 +126,30 @@ def select_unassigned_variable(assignment):
 
 def backtracking_search(assignment):
     """Return a complete valid assignment, or None if none exists."""
-    # TODO:
-    # 1. If every variable has been assigned, return a COPY.
-    # 2. Choose a variable with select_unassigned_variable().
-    # 3. For each colour in its domain, temporarily assign it.
-    # 4. If the partial assignment is valid, search recursively.
-    # 5. Return the recursive result if a solution was found.
-    # 6. Otherwise remove the temporary assignment (backtrack).
-    # 7. Return None if every colour fails.
-    pass
+    # If every variable is assigned, return a copy of the solution
+    if len(assignment) == len(variables):
+        return assignment.copy()
+
+    variable = select_unassigned_variable(assignment)
+
+    # Try each possible colour
+    for colour in domains[variable]:
+
+        assignment[variable] = colour
+
+        # Continue only if the partial assignment is valid
+        if is_valid_assignment(assignment):
+
+            result = backtracking_search(assignment)
+
+            if result is not None:
+                return result
+
+        # Undo the temporary assignment
+        del assignment[variable]
+
+    return None
+    
 
 
 # --------------------------------------------------
