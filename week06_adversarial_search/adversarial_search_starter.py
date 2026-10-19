@@ -30,7 +30,10 @@ print(r"""
        3    5  2    9
 """)
 print("Which values do the two MIN nodes return?")
+print("The left MIN node returns 3 and the right MIN node returns 2 because MIN always chooses the smallest available value.\n")
+
 print("Which branch should MAX choose, and why?")
+print("MAX should choose the left branch because it receives a value of 3, which is higher than the value of 2 from the right branch. MAX tries to maximise the utility, while MIN tries to minimise it.\n")
 
 # BOARD — X plays next (three X marks and two O marks).
 # Board positions are numbered 0 to 8, left to right, top to bottom.
@@ -53,8 +56,11 @@ WINNING_LINES = [
 
 def print_board(state):
     """Display the nine cells as a 3-by-3 board."""
-    # TODO: Print three rows of three cells.
-    pass
+    print(f"{state[0]} | {state[1]} | {state[2]}")
+    print("--+---+--")
+    print(f"{state[3]} | {state[4]} | {state[5]}")
+    print("--+---+--")
+    print(f"{state[6]} | {state[7]} | {state[8]}")
 
 
 # --------------------------------------------------
@@ -63,8 +69,13 @@ def print_board(state):
 
 def available_moves(state):
     """Return indices of empty cells (0 through 8)."""
-    # TODO: Find every position containing " ".
-    pass
+    moves = []
+
+    for index in range(len(state)):
+        if state[index] == " ":
+            moves.append(index)
+
+    return moves
 
 
 # --------------------------------------------------
@@ -76,8 +87,10 @@ def make_move(state, move, player):
 
     Assume move is legal. Do not modify the input board.
     """
-    # TODO: Copy the board and place the player's mark.
-    pass
+    new_state = state.copy()
+    new_state[move] = player
+
+    return new_state
 
 
 # --------------------------------------------------
