@@ -62,7 +62,7 @@ if __name__ == "__main__":
     print("TASK 0 — MANUAL REASONING")
     print("=" * 55)
 
-    
+
 
     print("Initial facts:", sorted(facts))
     print("Rules:")
@@ -112,3 +112,18 @@ if __name__ == "__main__":
 
     print("3. How is logical inference different from statistical reasoning under uncertainty?")
     print("Logical inference derives a conclusion when the required facts and rules are satisfied. Statistical reasoning instead deals with probabilities and uncertainty, where a conclusion may be likely without being guaranteed.\n")
+
+
+    print("\nREFLECTION QUESTIONS")
+
+    print("1. What is logical entailment?")
+    print("Logical entailment means that a conclusion must be true whenever the facts and rules in the knowledge base are true.\n")
+
+    print("2. How does forward chaining work?")
+    print("Forward chaining is a data-driven reasoning method. It starts with known facts and repeatedly applies rules to derive new facts until no more conclusions can be inferred.\n")
+
+    print("3. How does backward chaining differ from forward chaining?")
+    print("Forward chaining starts with known facts and works towards possible conclusions. Backward chaining is goal-driven: it starts with a goal and works backwards to determine what facts must be true to prove that goal.\n")
+
+    print("4. What are the limitations of propositional logic?")
+    print("Propositional logic treats each statement as an indivisible true-or-false proposition. It cannot represent general relationships between many individuals, so many separate statements may be needed.\n")
