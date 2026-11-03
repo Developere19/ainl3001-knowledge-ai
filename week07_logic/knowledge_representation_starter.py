@@ -82,6 +82,21 @@ if __name__ == "__main__":
 
     print("\nTASK 5 — BACKWARD CHAINING (discussion)")
     print("Goal: stay_dry. Which rule concludes it? What must be true first?")
+
+    print("1. Which rule has stay_dry as its conclusion?")
+    print("The rule IF take_umbrella THEN stay_dry.\n")
+
+    print("2. What condition does that rule require?")
+    print("It requires take_umbrella to be true.\n")
+
+    print("3. Which rule could establish that condition?")
+    print("The rule IF rainy THEN take_umbrella can establish take_umbrella.\n")
+
+    print("4. Does the chain ultimately reach an initial fact?")
+    print("Yes. The chain reaches rainy, which is already an initial fact.\n")
+
+    print("Backward chain: stay_dry <- take_umbrella <- rainy")
+
     print("\nTASK 6 — LOGIC DISCUSSION")
     print("Is 'IF rainy THEN take_umbrella' always true in the real world?")
     print("What assumptions does the rule make?")
