@@ -54,8 +54,7 @@ def query(inferred_facts, statement):
 
     A False result means 'not established', not necessarily 'false'.
     """
-    # TODO
-    pass
+    return statement in inferred_facts
 
 
 if __name__ == "__main__":
