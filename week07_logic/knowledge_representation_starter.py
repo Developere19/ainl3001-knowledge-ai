@@ -61,6 +61,9 @@ if __name__ == "__main__":
     print("=" * 55)
     print("TASK 0 — MANUAL REASONING")
     print("=" * 55)
+
+    
+
     print("Initial facts:", sorted(facts))
     print("Rules:")
     for conditions, conclusion in rules:
@@ -100,3 +103,12 @@ if __name__ == "__main__":
     print("\nTASK 6 — LOGIC DISCUSSION")
     print("Is 'IF rainy THEN take_umbrella' always true in the real world?")
     print("What assumptions does the rule make?")
+
+    print("1. Does the rule IF rainy THEN take_umbrella have to be true in the real world?")
+    print("No. It is a rule that we have chosen to accept inside this knowledge base. In the real world, someone may choose not to take an umbrella even when it is raining.\n")
+
+    print("2. What assumptions are we making when we include this rule in the knowledge base?")
+    print("We are assuming that whenever rainy is known to be true, take_umbrella should also be treated as true according to the rules of our model.\n")
+
+    print("3. How is logical inference different from statistical reasoning under uncertainty?")
+    print("Logical inference derives a conclusion when the required facts and rules are satisfied. Statistical reasoning instead deals with probabilities and uncertainty, where a conclusion may be likely without being guaranteed.\n")
