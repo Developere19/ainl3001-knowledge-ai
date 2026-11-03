@@ -21,16 +21,32 @@ rules = [
 
 
 def forward_chaining(known_facts, rules):
-    """Return all original and inferred facts without changing known_facts.
+    #Return all original and inferred facts without changing known_facts.
 
-    TASK 3 — TODO:
-    1. Copy known_facts into a new set.
-    2. Examine every rule and add its conclusion when ALL conditions hold.
-    3. Repeat until an entire pass adds no new facts.
-    4. Return the completed set.
-    """
-    # TODO
-    pass
+    #TASK 3:
+    #1. Copy known_facts into a new set.
+    inferred_facts = set(known_facts)
+
+    while True:
+        new_fact_added = False
+
+    #2. Examine every rule and add its conclusion when ALL conditions hold.
+        for conditions, conclusion in rules:
+            # Check whether ALL conditions are already known
+            if all(condition in inferred_facts for condition in conditions):
+
+                # Only add the conclusion if it is new
+                if conclusion not in inferred_facts:
+                    inferred_facts.add(conclusion)
+                    new_fact_added = True
+
+    #3. Repeat until an entire pass adds no new facts.
+        if not new_fact_added:
+            break
+    #4. Return the completed set.
+    return inferred_facts
+    
+    
 
 
 def query(inferred_facts, statement):
