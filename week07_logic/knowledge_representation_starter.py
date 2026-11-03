@@ -62,7 +62,17 @@ if __name__ == "__main__":
     print("TASK 0 — MANUAL REASONING")
     print("=" * 55)
 
+    print("1. Can we infer take_umbrella? Why?")
+    print("Yes. Rainy is already a known fact, so the rule IF rainy THEN take_umbrella can be applied.\n")
 
+    print("2. Can we infer stay_dry? Why?")
+    print("Yes. Rainy allows us to infer take_umbrella, and then the rule IF take_umbrella THEN stay_dry can be applied.\n")
+
+    print("3. Can we infer wear_coat? Why or why not?")
+    print("No. The rule requires both rainy and cold. Rainy is known, but cold is not currently a known fact.\n")
+
+    print("4. In which order might new facts be discovered?")
+    print("First take_umbrella is inferred from rainy. Then stay_dry is inferred from take_umbrella.\n")
 
     print("Initial facts:", sorted(facts))
     print("Rules:")
